@@ -52,6 +52,9 @@ group :development, :test do
 
   # RSpec testing framework [https://rspec.info/]
   gem "rspec-rails", "~> 7.1"
+
+  # FactoryBot library for setting up and creating test data [https://github.com/thoughtbot/factory_bot_rails]
+  gem "factory_bot_rails", "~> 6.4", ">= 6.4.4"
 end
 
 group :development do
