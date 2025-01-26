@@ -2,7 +2,6 @@
 
 A simple Rails-based finance tracker app using PostgreSQL.
 
-
 ## Tech Stack
 
 - **Backend**: Ruby on Rails
