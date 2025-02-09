@@ -70,4 +70,12 @@ RSpec.configure do |config|
 
   # Include FactoryBot methods in your tests
   config.include FactoryBot::Syntax::Methods
+
+  # Configure shoulda-matchers for concise model tests
+  Shoulda::Matchers.configure do |shoulda_config|
+    shoulda_config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
 end
