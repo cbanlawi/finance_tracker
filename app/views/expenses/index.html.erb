@@ -1,0 +1,17 @@
+<h1>All Expenses</h1>
+
+<div>
+    <% if @expenses&.any? %>
+        <ul>
+            <% @expenses.each do |expense| %>
+                <li>
+                    <%= link_to expense.name, expense_path(expense) %> - <%= number_to_currency(expense.amount) %>
+                </li>
+            <% end %>
+        </ul>
+    <% else %> 
+        <p>You currently don't have any expenses!</p>
+    <% end %>
+</div>
+
+<%= link_to "New Expense", new_expense_path %>
