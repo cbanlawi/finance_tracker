@@ -6,6 +6,10 @@
             <% @expenses.each do |expense| %>
                 <li>
                     <%= link_to expense.name, expense_path(expense) %> - <%= number_to_currency(expense.amount) %>
+                    |
+                    <%= link_to "Edit", edit_expense_path(expense) %>
+                    |
+                    <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" } %>
                 </li>
             <% end %>
         </ul>
