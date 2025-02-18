@@ -1,21 +1,38 @@
 <h1>All Expenses</h1>
 
-<div>
-    <% if @expenses&.any? %>
-        <ul>
-            <% @expenses.each do |expense| %>
-                <li>
-                    <%= link_to expense.name, expense_path(expense) %> - <%= number_to_currency(expense.amount) %>
-                    |
-                    <%= link_to "Edit", edit_expense_path(expense) %>
-                    |
-                    <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" } %>
-                </li>
+<% @expenses.group_by { |e| e.date.strftime("%B %Y") }.each do |month, expenses| %>
+    <h2><%= month %></h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% expenses.each do |expense| %>
+                <tr>
+                    <td><%= expense.name %></td>
+                    <td><%= number_to_currency(expense.amount) %></td>
+                    <td><%= expense.category %></td>
+                    <td><%= expense.date.strftime("%B %d, %Y") %></td>
+                    <td>
+                        <%= link_to "Show", expense_path(expense) %>
+                        <%= link_to "Edit", edit_expense_path(expense) %>
+                        <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" } %>
+                    </td>
+                </tr>
             <% end %>
-        </ul>
-    <% else %> 
-        <p>You currently don't have any expenses!</p>
-    <% end %>
-</div>
+
+            <tr>
+                <td colspan="5"><hr></td>
+            </tr>
+
+        </tbody>
+    </table>
+<% end %>
 
 <%= link_to "New Expense", new_expense_path %>
