@@ -24,8 +24,14 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <%= render "shared/sidebar" %>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-8">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

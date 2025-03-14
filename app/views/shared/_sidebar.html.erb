@@ -1,0 +1,7 @@
+<div class="lg:w-1/6 p-8 bg-indigo-950 text-white min-h-screen">
+  <nav>
+    <ul>
+      <li><%= link_to "Expenses", expenses_path, class: "block px-4 py-2 rounded #{current_page?(expenses_path) ? 'bg-gradient-to-r from-indigo-900 to-violet-500 text-white' : 'hover:bg-indigo-900'}" %></li>
+    </ul>
+  </nav>
+</div>
