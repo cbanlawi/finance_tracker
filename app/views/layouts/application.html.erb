@@ -17,13 +17,15 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <body>
+  <body style="font-family: 'Poppins', sans-serif;">
     <div class="flex h-screen">
       <!-- Sidebar -->
       <%= render "shared/sidebar" %>
