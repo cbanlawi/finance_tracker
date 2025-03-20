@@ -1,12 +1,14 @@
 # Finance Tracker
 
-A simple Rails-based finance tracker app using PostgreSQL.
+A simple, full-stack Ruby on Rails finance tracker for managing personal expenses.  
+Uses PostgreSQL as the database and Tailwind CSS for styling.
 
 ## Tech Stack
 
-- **Backend**: Ruby on Rails
+- **Backend**: Ruby on Rails 8
 - **Database**: PostgreSQL
-- **Testing**: RSpec with FactoryBot for test data generation
+- **Frontend Styling**: Tailwind CSS
+- **Testing**: RSpec, FactoryBot, Shoulda-Matchers
 
 ## Quick Start
 
@@ -19,4 +21,28 @@ A simple Rails-based finance tracker app using PostgreSQL.
 2. Install dependencies:
    ```
    bundle install
+   ```
+
+3. Set up the database:
+
+   Ensure PostgreSQL is Running
+   Start PostgreSQL using Homebrew (macOS):
+   ```
+   brew services start postgresql
+   ```
+
+   Check if it’s running:
+   ```
+   brew services list
+   ```
+   Look for postgresql with a `started` status. If it’s `stopped`, run the start command above.
+
+   Create and Migrate the Database:
+   ```
+   rails db:create db:migrate
+   ```
+
+4. Run the App:
+   ```
+   rails s
    ```
