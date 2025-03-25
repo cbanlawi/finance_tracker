@@ -1,38 +1,36 @@
 <h1>All Expenses</h1>
 
-<% @expenses.group_by { |e| e.date.strftime("%B %Y") }.each do |month, expenses| %>
-    <h2><%= month %></h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Amount</th>
-                <th>Category</th>
-                <th>Date</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% expenses.each do |expense| %>
-                <tr>
-                    <td><%= expense.name %></td>
-                    <td><%= number_to_currency(expense.amount) %></td>
-                    <td><%= expense.category %></td>
-                    <td><%= expense.date.strftime("%B %d, %Y") %></td>
-                    <td>
-                        <%= link_to "Show", expense_path(expense) %>
-                        <%= link_to "Edit", edit_expense_path(expense) %>
-                        <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" } %>
-                    </td>
-                </tr>
-            <% end %>
+<table class="w-full">
+  <thead>
+    <tr>
+      <th class="text-left px-4 py-2 border-b">Name</th>
+      <th class="text-left px-4 py-2 border-b">Amount</th>
+      <th class="text-left px-4 py-2 border-b">Category</th>
+      <th class="text-left px-4 py-2 border-b">Date</th>
+      <th class="text-left px-4 py-2 border-b">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expenses.group_by { |e| e.date.strftime("%B %Y") }.each do |month, expenses| %>
+      <tr>
+        <td colspan="5" class="font-semibold px-4 py-2"><%= month %></td>
+      </tr>
 
-            <tr>
-                <td colspan="5"><hr></td>
-            </tr>
-
-        </tbody>
-    </table>
-<% end %>
+      <% expenses.each do |expense| %>
+        <tr>
+          <td class="px-4 py-2"><%= expense.name %></td>
+          <td class="px-4 py-2"><%= number_to_currency(expense.amount) %></td>
+          <td class="px-4 py-2"><%= expense.category %></td>
+          <td class="px-4 py-2"><%= expense.date.strftime("%B %d, %Y") %></td>
+          <td class="px-4 py-2">
+            <%= link_to "Show", expense_path(expense) %>
+            <%= link_to "Edit", edit_expense_path(expense) %>
+            <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New Expense", new_expense_path %>
