@@ -1,31 +1,31 @@
-<h1>All Expenses</h1>
+<h1 class="text-2xl font-semibold text-white mb-6">All Expenses</h1>
 
-<table class="w-full">
+<table class="w-full bg-indigo-800 rounded-lg overflow-hidden">
   <thead>
-    <tr>
-      <th class="text-left px-4 py-2 border-b">Name</th>
-      <th class="text-left px-4 py-2 border-b">Amount</th>
-      <th class="text-left px-4 py-2 border-b">Category</th>
-      <th class="text-left px-4 py-2 border-b">Date</th>
-      <th class="text-left px-4 py-2 border-b">Actions</th>
+    <tr class="bg-indigo-700 text-white">
+      <th class="text-left px-6 py-3 border-b border-indigo-600">Name</th>
+      <th class="text-left px-6 py-3 border-b border-indigo-600">Amount</th>
+      <th class="text-left px-6 py-3 border-b border-indigo-600">Category</th>
+      <th class="text-left px-6 py-3 border-b border-indigo-600">Date</th>
+      <th class="text-left px-6 py-3 border-b border-indigo-600">Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @expenses.group_by { |e| e.date.strftime("%B %Y") }.each do |month, expenses| %>
       <tr>
-        <td colspan="5" class="font-semibold px-4 py-2"><%= month %></td>
+        <td colspan="5" class="font-semibold text-indigo-400 px-4 py-2 bg-indigo-800 rounded-t"><%= month %></td>
       </tr>
 
       <% expenses.each do |expense| %>
-        <tr>
-          <td class="px-4 py-2"><%= expense.name %></td>
-          <td class="px-4 py-2"><%= number_to_currency(expense.amount) %></td>
-          <td class="px-4 py-2"><%= expense.category %></td>
-          <td class="px-4 py-2"><%= expense.date.strftime("%B %d, %Y") %></td>
-          <td class="px-4 py-2">
-            <%= link_to "Show", expense_path(expense) %>
-            <%= link_to "Edit", edit_expense_path(expense) %>
-            <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" } %>
+        <tr class="text-white hover:bg-indigo-700 transition">
+          <td class="px-6 py-3 border-b border-indigo-700"><%= expense.name %></td>
+          <td class="px-6 py-3 border-b border-indigo-700"><%= number_to_currency(expense.amount) %></td>
+          <td class="px-6 py-3 border-b border-indigo-700"><%= expense.category %></td>
+          <td class="px-6 py-3 border-b border-indigo-700"><%= expense.date.strftime("%B %d, %Y") %></td>
+          <td class="px-6 py-3 border-b border-indigo-700">
+            <%= link_to "Show", expense_path(expense), class: "underline text-violet-300 hover:text-white mr-2" %>
+            <%= link_to "Edit", edit_expense_path(expense), class: "underline text-violet-300 hover:text-white mr-2" %>
+            <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" }, class: "underline text-red-400 hover:text-white" %>
           </td>
         </tr>
       <% end %>
