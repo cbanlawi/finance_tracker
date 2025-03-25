@@ -1,4 +1,7 @@
-<h1 class="text-2xl font-semibold text-white mb-6">All Expenses</h1>
+<div class="flex justify-between items-center mb-4">
+  <h1 class="text-white text-2xl font-semibold">All Expenses</h1>
+  <%= link_to "New Expense", new_expense_path, class: "bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2 px-4 rounded-lg transition-colors" %>
+</div>
 
 <table class="w-full bg-indigo-800 rounded-lg overflow-hidden">
   <thead>
@@ -23,8 +26,8 @@
           <td class="px-6 py-3 border-b border-indigo-700"><%= expense.category %></td>
           <td class="px-6 py-3 border-b border-indigo-700"><%= expense.date.strftime("%B %d, %Y") %></td>
           <td class="px-6 py-3 border-b border-indigo-700">
-            <%= link_to "Show", expense_path(expense), class: "underline text-violet-300 hover:text-white mr-2" %>
-            <%= link_to "Edit", edit_expense_path(expense), class: "underline text-violet-300 hover:text-white mr-2" %>
+            <%= link_to "Show", expense_path(expense), class: "underline text-indigo-300 hover:text-white mr-2" %>
+            <%= link_to "Edit", edit_expense_path(expense), class: "underline text-indigo-300 hover:text-white mr-2" %>
             <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" }, class: "underline text-red-400 hover:text-white" %>
           </td>
         </tr>
@@ -32,5 +35,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to "New Expense", new_expense_path %>
