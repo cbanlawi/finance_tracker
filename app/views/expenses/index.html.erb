@@ -27,7 +27,7 @@
           <td class="px-6 py-3 border-b border-indigo-700"><%= expense.date.strftime("%B %d, %Y") %></td>
           <td class="px-6 py-3 border-b border-indigo-700">
             <%= link_to "Show", expense_path(expense), class: "underline text-indigo-300 hover:text-white mr-2" %>
-            <%= link_to "Edit", edit_expense_path(expense), class: "underline text-indigo-300 hover:text-white mr-2" %>
+            <%= link_to "Update", edit_expense_path(expense), class: "underline text-indigo-300 hover:text-white mr-2" %>
             <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" }, class: "underline text-red-400 hover:text-white" %>
           </td>
         </tr>
