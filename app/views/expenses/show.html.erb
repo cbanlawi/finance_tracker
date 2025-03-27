@@ -1,8 +1,24 @@
-<h1><%= @expense.name %></h1>
+<div class="max-w-2xl mt-10 ml-12 text-white space-y-4">
+  <h1 class="text-2xl font-semibold"><%= @expense.name %></h1>
 
-<p><strong>Amount:</strong> <%= number_to_currency(@expense.amount) %></p>
-<p><strong>Category:</strong> <%= @expense.category %></p>
-<p><strong>Date:</strong> <%= @expense.date.strftime("%B %d, %Y") %></p>
+  <p>
+    <span class="font-medium text-indigo-300">Amount:</span>
+    $<%= number_with_precision(@expense.amount, precision: 2) %>
+  </p>
 
-<%= link_to "Edit", edit_expense_path(@expense) if @expense %> |
-<%= link_to "Back to Expenses", expenses_path %>
+  <p>
+    <span class="font-medium text-indigo-300">Category:</span>
+    <%= @expense.category %>
+  </p>
+
+  <p>
+    <span class="font-medium text-indigo-300">Date:</span>
+    <%= @expense.date.strftime("%B %d, %Y") %>
+  </p>
+
+  <div class="pt-4 space-x-4">
+    <%= link_to "Edit", edit_expense_path(@expense), class: "text-indigo-400 hover:underline" %>
+    <span class="text-gray-500">|</span>
+    <%= link_to "Back to Expenses", expenses_path, class: "text-indigo-400 hover:underline" %>
+  </div>
+</div>
