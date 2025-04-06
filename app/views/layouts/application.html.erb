@@ -28,7 +28,7 @@
   <body style="font-family: 'Poppins', sans-serif;">
     <div class="flex h-screen">
       <!-- Sidebar -->
-      <%= render "shared/sidebar" %>
+      <%= render "shared/sidebar" if user_signed_in? %>
 
       <!-- Main Content -->
       <main class="flex-1 p-8 bg-indigo-900">
