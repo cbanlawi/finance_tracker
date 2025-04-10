@@ -1,7 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "Expenses", type: :request do
-  let!(:expense) { create(:expense) }
+  let(:user) { create(:user) }
+  let!(:expense) { create(:expense, user: user) }
+
+  before do
+    sign_in user
+  end
 
   describe "GET /expenses" do
     it 'returns a list of expenses' do

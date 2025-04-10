@@ -8,6 +8,11 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 # that will avoid rails generators crashing because migrations haven't been run yet
 # return unless Rails.env.test?
 require 'rspec/rails'
+require 'devise'
+
+# Ensure routes (and Devise mappings) are loaded before tests run
+# This is important for Devise to work correctly in request specs
+Rails.application.reload_routes!
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -33,6 +38,11 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  # Reload routes before tests run
+  config.before(:all) do
+    Rails.application.reload_routes!
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
@@ -68,8 +78,21 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  # Include FactoryBot methods in your tests
-  config.include FactoryBot::Syntax::Methods
+  # Include Rails route helpers (like expenses_path) in request specs
+  config.include Rails.application.routes.url_helpers, type: :request
+
+  # Include Devise test helpers for request specs
+  config.include Devise::Test::IntegrationHelpers, type: :request
+
+  # Set up Warden test helpers (safer for request specs)
+  # Warden is used by Devise for authentication
+  config.include Warden::Test::Helpers
+  config.after(:each) do
+    Warden.test_reset!
+  end
+
+   # Include FactoryBot methods in your tests
+   config.include FactoryBot::Syntax::Methods
 
   # Configure shoulda-matchers for concise model tests
   Shoulda::Matchers.configure do |shoulda_config|
