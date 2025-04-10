@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Expense, type: :model do
+  describe 'Associations' do
+    it { should belong_to(:user) }
+  end
+
   let(:expense) { build(:expense, name: name, amount: amount, date: date) }
   let(:name) { "Internet Bill" }
   let(:amount) { 69.00 }
