@@ -5,9 +5,10 @@ Uses PostgreSQL as the database and Tailwind CSS for styling.
 
 ## Tech Stack
 
-- **Backend**: Ruby on Rails 8
+- **Full Stack**: Ruby on Rails 8
 - **Database**: PostgreSQL
 - **Frontend Styling**: Tailwind CSS
+- **Authentication**: Devise
 - **Testing**: RSpec, FactoryBot, Shoulda-Matchers
 
 ## Quick Start
@@ -26,6 +27,7 @@ Uses PostgreSQL as the database and Tailwind CSS for styling.
 3. Set up the database:
 
    Ensure PostgreSQL is Running
+
    Start PostgreSQL using Homebrew (macOS):
    ```
    brew services start postgresql
@@ -42,7 +44,17 @@ Uses PostgreSQL as the database and Tailwind CSS for styling.
    rails db:create db:migrate
    ```
 
-4. Run the App:
+5. Run the App:
    ```
    rails s
    ```
+
+6. **User Authentication**:
+  - This app uses **Devise** for user authentication. You can register, log in, and log out to manage access to the app.
+
+6. **Testing**:
+  - This project uses **RSpec** for testing, and **FactoryBot** and **Shoulda-Matchers** for generating test data and simplifying model testing.
+  - Run the test suite with:
+    ```
+    bundle exec rspec
+    ```
