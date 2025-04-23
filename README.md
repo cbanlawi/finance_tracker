@@ -10,6 +10,7 @@ Uses PostgreSQL as the database and Tailwind CSS for styling.
 - **Frontend Styling**: Tailwind CSS
 - **Authentication**: Devise
 - **Testing**: RSpec, FactoryBot, Shoulda-Matchers
+- **Email Testing**: Letter Opener
 
 ## Quick Start
 
@@ -19,12 +20,12 @@ Uses PostgreSQL as the database and Tailwind CSS for styling.
    cd finance_tracker
    ```
 
-2. Install dependencies:
+2. **Install dependencies**:
    ```
    bundle install
    ```
 
-3. Set up the database:
+3. **Set up the database**:
 
    Ensure PostgreSQL is Running
 
@@ -44,17 +45,23 @@ Uses PostgreSQL as the database and Tailwind CSS for styling.
    rails db:create db:migrate
    ```
 
-5. Run the App:
+4. **Run the App**:
    ```
    rails s
    ```
 
-6. **User Authentication**:
-  - This app uses **Devise** for user authentication. You can register, log in, and log out to manage access to the app.
+5. **User Authentication**:
+   
+   This app uses **Devise** for user authentication. You can register, log in, and log out to manage access to the app.
 
-6. **Testing**:
-  - This project uses **RSpec** for testing, and **FactoryBot** and **Shoulda-Matchers** for generating test data and simplifying model testing.
-  - Run the test suite with:
-    ```
-    bundle exec rspec
-    ```
+7. **Testing**:
+   
+   This project uses **RSpec** for testing, and **FactoryBot** and **Shoulda-Matchers** for generating test data and simplifying model testing.
+   Run the test suite with:
+   ```
+   bundle exec rspec
+   ```
+
+8. **Notion Documentation**:
+
+   For more detailed documentation on the setup and configuration of this app, please visit the [Finance Tracker Notion Documentation](https://light-driver-b33.notion.site/Finance-Tracker-Documentation-18707c67d974801bb2c1fb6d2bda4c12).
