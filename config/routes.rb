@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Define routes for the application
+  get "/dashboard", to: "dashboard#show", as: :dashboard
   resources :expenses
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
