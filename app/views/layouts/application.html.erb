@@ -35,8 +35,9 @@
         <!-- 🔐 Devise Auth Links (for testing) -->
         <div class="mb-4 space-x-4 text-indigo-300">
           <% if user_signed_in? %>
-            <span>Welcome, <%= current_user.email %>!</span>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            <div class="flex justify-end">
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            </div>
           <% else %>
             <%= link_to "Sign up", new_user_registration_path %>
             <%= link_to "Log in", new_user_session_path %>
