@@ -18,7 +18,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Add Tailwind CSS for styling
-gem "tailwindcss-rails", "~> 4.2"
+gem "tailwindcss-rails", "~> 4.3"
 
 # Authentication with Devise
 gem "devise", "~> 4.9", ">= 4.9.4"
