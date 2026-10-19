@@ -1,6 +1,6 @@
 # Finance Tracker
 
-A simple, full-stack Ruby on Rails finance tracker for managing personal expenses.  
+A simple, full-stack Ruby on Rails finance tracker for managing personal expenses.
 Uses PostgreSQL as the database and Tailwind CSS for styling.
 
 ## Tech Stack
@@ -29,9 +29,10 @@ Uses PostgreSQL as the database and Tailwind CSS for styling.
 
    Ensure PostgreSQL is Running
 
-   Start PostgreSQL using Homebrew (macOS):
+   Install and start PostgreSQL using Homebrew (macOS):
    ```
-   brew services start postgresql
+   brew install postgresql@18
+   brew services start postgresql@18
    ```
 
    Check if it’s running:
@@ -39,6 +40,11 @@ Uses PostgreSQL as the database and Tailwind CSS for styling.
    brew services list
    ```
    Look for postgresql with a `started` status. If it’s `stopped`, run the start command above.
+
+   Create the `finance_tracker` database role (used in `config/database.yml`):
+   ```
+   createuser --superuser finance_tracker
+   ```
 
    Create and Migrate the Database:
    ```
@@ -51,17 +57,17 @@ Uses PostgreSQL as the database and Tailwind CSS for styling.
    ```
 
 5. **User Authentication**:
-   
+
    This app uses **Devise** for user authentication. You can register, log in, and log out to manage access to the app.
 
-7. **Testing**:
-   
+6. **Testing**:
+
    This project uses **RSpec** for testing, and **FactoryBot** and **Shoulda-Matchers** for generating test data and simplifying model testing.
    Run the test suite with:
    ```
    bundle exec rspec
    ```
 
-8. **Notion Documentation**:
+7. **Notion Documentation**:
 
    For more detailed documentation on the setup and configuration of this app, please visit the [Finance Tracker Notion Documentation](https://light-driver-b33.notion.site/Finance-Tracker-Documentation-18707c67d974801bb2c1fb6d2bda4c12).
